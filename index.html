@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festive Safari Kenya - Maasai Mara & Nakuru National Park</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #D4A017;
+            --secondary: #1E5631;
+            --accent: #C53030;
+            --light: #F8F5E6;
+            --dark: #1A1A1A;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: rgba(26, 26, 26, 0.95);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        
+        .logo span {
+            color: white;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1546182990-dffeafbe841d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--dark);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: 2px solid var(--primary);
+        }
+        
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--primary);
+        }
+        
+        /* Destinations Section */
+        .destinations {
+            padding: 5rem 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background-color: var(--primary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .destination-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .destination-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .destination-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .destination-img {
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .destination-content {
+            padding: 1.5rem;
+        }
+        
+        .destination-content h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        /* Big Five Gallery */
+        .big-five-gallery {
+            padding: 3rem 0;
+            background-color: #f9f9f9;
+        }
+        
+        .gallery-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+        }
+        
+        .gallery-title h3 {
+            font-size: 2rem;
+            display: inline-block;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary);
+        }
+        
+        .animal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .animal-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .animal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .animal-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .animal-name {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        
+        /* Flamingo Section */
+        .flamingo-section {
+            padding: 3rem 0;
+            background-color: white;
+        }
+        
+        .flamingo-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .flamingo-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .flamingo-images {
+            flex: 1;
+            min-width: 300px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        
+        .flamingo-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .flamingo-img-large {
+            grid-column: span 2;
+            height: 250px;
+        }
+        
+        /* Packages Section */
+        .packages {
+            padding: 5rem 0;
+            background-color: #f9f9f9;
+        }
+        
+        .package-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .package-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .package-card:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .package-badge {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.5rem 2.5rem;
+            transform: rotate(45deg);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .package-header {
+            padding: 1.5rem;
+            background-color: var(--secondary);
+            color: white;
+            text-align: center;
+        }
+        
+        .package-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .package-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .package-price span {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .package-features {
+            padding: 1.5rem;
+            list-style: none;
+        }
+        
+        .package-features li {
+            padding: 0.8rem 0;
+            border-bottom: 1px dashed #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .package-features li i {
+            color: var(--primary);
+            margin-right: 10px;
+        }
+        
+        .package-button {
+            display: block;
+            text-align: center;
+            background-color: var(--secondary);
+            color: white;
+            padding: 1rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .package-button:hover {
+            background-color: var(--primary);
+            color: var(--dark);
+        }
+        
+        /* Payment Section */
+        .payment {
+            padding: 5rem 0;
+            background-color: white;
+        }
+        
+        .payment-options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .payment-card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 2rem;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .payment-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .payment-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+        
+        .bitcoin-icon {
+            color: #F7931A;
+        }
+        
+        .payment-details {
+            background-color: #f0f0f0;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+            word-break: break-all;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        
+        .recommended-badge {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--dark);
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 5rem 0;
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .contact-info h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-right: 1rem;
+            margin-top: 5px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0 1.5rem;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-links li {
+            margin: 0 1rem;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .copyright {
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: rgba(26, 26, 26, 0.98);
+                flex-direction: column;
+                padding: 1rem 0;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 0;
+                text-align: center;
+                padding: 1rem 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .animal-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .cta-button {
+                padding: 0.8rem 1.8rem;
+                font-size: 1rem;
+            }
+            
+            .package-price {
+                font-size: 2rem;
+            }
+            
+            .flamingo-images {
+                grid-template-columns: 1fr;
+            }
+            
+            .flamingo-img-large {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Festive<span>Safari</span></div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#destinations">Destinations</a></li>
+                    <li><a href="#big-five">Big Five</a></li>
+                    <li><a href="#flamingoes">Flamingoes</a></li>
+                    <li><a href="#packages">Packages</a></li>
+                    <li><a href="#payment">Payment</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Experience Kenya's Majestic Wildlife</h1>
+                <p>Embark on an unforgettable festive safari adventure through Maasai Mara National Reserve and Nakuru National Park. From budget-friendly tours to exclusive VIP experiences, discover the beauty of Kenya's wildlife.</p>
+                <a href="#packages" class="cta-button">View Safari Packages</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations Section -->
+    <section class="destinations" id="destinations">
+        <div class="container">
+            <div class="section-title">
+                <h2>Explore Our Safari Destinations</h2>
+            </div>
+            <div class="destination-grid">
+                <div class="destination-card">
+                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Maasai Mara National Reserve" class="destination-img">
+                    <div class="destination-content">
+                        <h3>Maasai Mara National Reserve</h3>
+                        <p>Witness the great wildebeest migration, see the Big Five, and experience the rich Maasai culture in one of Africa's most famous wildlife reserves.</p>
+                        <p>Home to lions, elephants, cheetahs, and countless other species, the Mara offers unparalleled game viewing opportunities.</p>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <img src="https://images.unsplash.com/photo-1568259642636-5c6c97d7f1f0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Nakuru National Park" class="destination-img">
+                    <div class="destination-content">
+                        <h3>Nakuru National Park</h3>
+                        <p>Famous for its flamingo-lined lake and both black and white rhinos, Lake Nakuru National Park is a birdwatcher's paradise and a sanctuary for endangered species.</p>
+                        <p>Enjoy stunning views of the lake surrounded by wooded and bushy grasslands.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Big Five Gallery -->
+    <section class="big-five-gallery" id="big-five">
+        <div class="container">
+            <div class="gallery-title">
+                <h3>The Big Five of Maasai Mara</h3>
+                <p>Spot these magnificent animals during your safari adventure</p>
+            </div>
+            <div class="animal-grid">
+                <div class="animal-card">
+                    <img src="https://images.unsplash.com/photo-1550358864-518f202c02ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="African Lion" class="animal-img">
+                    <div class="animal-name">Lion</div>
+                </div>
+                <div class="animal-card">
+                    <img src="https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="African Elephant" class="animal-img">
+                    <div class="animal-name">Elephant</div>
+                </div>
+                <div class="animal-card">
+                    <img src="https://images.unsplash.com/photo-1595435934247-5d33b7f92c60?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="African Rhinoceros" class="animal-img">
+                    <div class="animal-name">Rhinoceros</div>
+                </div>
+                <div class="animal-card">
+                    <img src="https://images.unsplash.com/photo-1561708648-5c5e5c2e1c3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="African Leopard" class="animal-img">
+                    <div class="animal-name">Leopard</div>
+                </div>
+                <div class="animal-card">
+                    <img src="https://images.unsplash.com/photo-1574870111867-089858b7ce7d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="African Buffalo" class="animal-img">
+                    <div class="animal-name">Buffalo</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flamingo Section -->
+    <section class="flamingo-section" id="flamingoes">
+        <div class="container">
+            <div class="section-title">
+                <h2>Flamingoes of Lake Nakuru</h2>
+                <p>Witness the spectacular pink flocks that make Lake Nakuru world-famous</p>
+            </div>
+            <div class="flamingo-container">
+                <div class="flamingo-content">
+                    <h3 style="color: var(--secondary); margin-bottom: 1rem;">The Pink Phenomenon</h3>
+                    <p>Lake Nakuru is renowned for its enormous flocks of lesser flamingos that often number in the millions, creating a breathtaking pink shoreline that can be seen from space.</p>
+                    <p style="margin-top: 1rem;">These beautiful birds feed on algae in the lake's alkaline waters, creating one of Africa's most iconic wildlife spectacles.</p>
+                    <p style="margin-top: 1rem;">In addition to flamingos, Lake Nakuru National Park hosts over 400 other bird species, making it a true paradise for birdwatchers and photographers.</p>
+                </div>
+                <div class="flamingo-images">
+                    <img src="https://images.unsplash.com/photo-1568259642636-5c6c97d7f1f0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Flamingoes at Lake Nakuru" class="flamingo-img flamingo-img-large">
+                    <img src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Flamingo close up" class="flamingo-img">
+                    <img src="https://images.unsplash.com/photo-1524464331951-2beb7ff8a8e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Flamingo flock" class="flamingo-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section class="packages" id="packages">
+        <div class="container">
+            <div class="section-title">
+                <h2>Safari Packages</h2>
+                <p>Choose from our range of safari experiences tailored for every type of traveler</p>
+            </div>
+            <div class="package-grid">
+                <div class="package-card">
+                    <div class="package-header">
+                        <h3>Essential Safari</h3>
+                        <div class="package-price">$100 - $400</div>
+                        <p>3-5 Day Experience</p>
+                    </div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> Guided game drives</li>
+                        <li><i class="fas fa-check"></i> Comfortable accommodation</li>
+                        <li><i class="fas fa-check"></i> All meals included</li>
+                        <li><i class="fas fa-check"></i> Park entry fees</li>
+                        <li><i class="fas fa-check"></i> Transport in safari vehicle</li>
+                    </ul>
+                    <a href="#contact" class="package-button">Book Now</a>
+                </div>
+                <div class="package-card">
+                    <div class="package-badge">Popular</div>
+                    <div class="package-header">
+                        <h3>Premium Safari</h3>
+                        <div class="package-price">$500 - $1200</div>
+                        <p>5-7 Day Luxury Experience</p>
+                    </div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> All Essential Safari features</li>
+                        <li><i class="fas fa-check"></i> Luxury lodge accommodation</li>
+                        <li><i class="fas fa-check"></i> Hot air balloon safari (optional)</li>
+                        <li><i class="fas fa-check"></i> Cultural visits to Maasai villages</li>
+                        <li><i class="fas fa-check"></i> Professional photography guidance</li>
+                    </ul>
+                    <a href="#contact" class="package-button">Book Now</a>
+                </div>
+                <div class="package-card">
+                    <div class="package-header">
+                        <h3>VIP Exclusive</h3>
+                        <div class="package-price">$1500 - $2000</div>
+                        <p>7-10 Day Ultimate Experience</p>
+                    </div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> All Premium Safari features</li>
+                        <li><i class="fas fa-check"></i> Private guide and vehicle</li>
+                        <li><i class="fas fa-check"></i> Helicopter transfers available</li>
+                        <li><i class="fas fa-check"></i> Gourmet dining experiences</li>
+                        <li><i class="fas fa-check"></i> Customized itinerary</li>
+                        <li><i class="fas fa-check"></i> Spa treatments and private pools</li>
+                    </ul>
+                    <a href="#contact" class="package-button">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Section -->
+    <section class="payment" id="payment">
+        <div class="container">
+            <div class="section-title">
+                <h2>Payment Methods</h2>
+                <p>Bookings ongoing. Secure your spot with a deposit through any of these methods</p>
+            </div>
+            <div class="payment-options">
+                <div class="payment-card">
+                    <div class="recommended-badge">Recommended</div>
+                    <div class="payment-icon bitcoin-icon">
+                        <i class="fab fa-bitcoin"></i>
+                    </div>
+                    <h3>Bitcoin (TRON TRC20)</h3>
+                    <p>Send Bitcoin via TRON TRC20 network to the address below:</p>
+                    <div class="payment-details">
+                        TS8JMDH2C8YpnH9XZmzuh1w1gZB28BQR9o
+                    </div>
+                    <p><small>After payment, contact us with transaction details</small></p>
+                </div>
+                <div class="payment-card">
+                    <div class="payment-icon">
+                        <i class="fab fa-paypal"></i>
+                    </div>
+                    <h3>PayPal</h3>
+                    <p>Send payment as "Friends and Family" to:</p>
+                    <div class="payment-details">
+                        kipchumba6919@gmail.com
+                    </div>
+                    <p><small>Select "Friends and Family" option to avoid fees</small></p>
+                </div>
+                <div class="payment-card">
+                    <div class="recommended-badge">Recommended</div>
+                    <div class="payment-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3>All Gift Cards</h3>
+                    <p>We accept all types of gift cards:</p>
+                    <ul style="text-align: left; margin-top: 1rem;">
+                        <li>Amazon Gift Cards</li>
+                        <li>Apple Gift Cards</li>
+                        <li>Google Play Cards</li>
+                        <li>Steam Cards</li>
+                        <li>And many more...</li>
+                    </ul>
+                    <p><small>Contact us for instructions on gift card payments</small></p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem; padding: 1.5rem; background-color: #f0f0f0; border-radius: 10px;">
+                <h3>Payment Confirmation</h3>
+                <p>After making your payment, contact us immediately for confirmation and booking details.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch for enquiries and payment confirmation</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>alexkipchumba223@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p>+254729380755</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-globe-africa"></i>
+                        </div>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Nairobi, Kenya</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <h3>Booking Process</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-1"></i>
+                        </div>
+                        <div>
+                            <h4>Step 1</h4>
+                            <p>Choose your preferred safari package</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-2"></i>
+                        </div>
+                        <div>
+                            <h4>Step 2</h4>
+                            <p>Make deposit payment via preferred method</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-3"></i>
+                        </div>
+                        <div>
+                            <h4>Step 3</h4>
+                            <p>Contact us with payment details for confirmation</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-4"></i>
+                        </div>
+                        <div>
+                            <h4>Step 4</h4>
+                            <p>Receive booking confirmation and prepare for your adventure!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="logo" style="margin-bottom: 2rem;">Festive<span>Safari</span></div>
+            <ul class="footer-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#destinations">Destinations</a></li>
+                <li><a href="#big-five">Big Five</a></li>
+                <li><a href="#flamingoes">Flamingoes</a></li>
+                <li><a href="#packages">Packages</a></li>
+                <li><a href="#payment">Payment</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <p class="copyright">© 2023 Festive Safari Kenya. All rights reserved. | You are all welcomed to Kenya!</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    // Close mobile menu if open
+                    document.querySelector('.nav-links').classList.remove('active');
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Header background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if(window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(26, 26, 26, 0.98)';
+            } else {
+                header.style.backgroundColor = 'rgba(26, 26, 26, 0.95)';
+            }
+        });
+        
+        // Animal card animation on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe animal cards
+        document.querySelectorAll('.animal-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+        
+        // Observe flamingo images
+        document.querySelectorAll('.flamingo-img').forEach(img => {
+            img.style.opacity = '0';
+            img.style.transform = 'scale(0.9)';
+            img.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(img);
+        });
+    </script>
+</body>
+</html>
