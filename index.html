@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Kenya Festive Vacation Packages</title>
+<!-- Google Fonts for style -->
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto&display=swap" rel="stylesheet"/>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  header {
+    background-color: rgba(0,0,0,0.5);
+    padding: 20px;
+    text-align: center;
+  }
+
+  header h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 3em;
+    margin: 0;
+  }
+
+  section {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .pricing {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .package {
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 15px;
+    flex: 1 1 250px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  }
+
+  .package h3 {
+    text-align: center;
+  }
+
+  .images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .images img {
+    max-width: 250px;
+    width: 100%;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.3);
+  }
+
+  form {
+    max-width: 600px;
+    margin: 30px auto;
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  input, select, textarea {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+  }
+
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 1em;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #45a049;
+  }
+
+  footer {
+    background-color: rgba(0,0,0,0.7);
+    padding: 20px;
+    text-align: center;
+  }
+
+  a {
+    color: #ffd700;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Kenya Festive Vacation Packages</h1>
+  <p>Experience the wild beauty of Maasai Mara & Nakuru National Park</p>
+</header>
+
+<section>
+  <h2>Scenic Pictures of Kenya</h2>
+  <div class="images">
+    <!-- Scenic background images -->
+    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80" alt="Maasai Mara Landscape" />
+    <img src="https://images.unsplash.com/photo-1549887534-7c680844a41a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80" alt="Nakuru Lake Flamingos" />
+  </div>
+</section>
+
+<section>
+  <h2>Our Packages & Prices</h2>
+  <div class="pricing">
+    <div class="package">
+      <h3>Budget Safari</h3>
+      <p>Starting from $100</p>
+      <p>Experience the wild on a budget with basic accommodations.</p>
+    </div>
+    <div class="package">
+      <h3>Luxury Safari</h3>
+      <p>Up to $2000</p>
+      <p>Premium accommodations, exclusive tours, and VIP services.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Book Your Safari</h2>
+  <form id="bookingForm" action="#" method="POST">
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" required />
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" required />
+
+    <label for="phone">WhatsApp Number</label>
+    <input type="tel" id="phone" name="phone" placeholder="+254..." required />
+
+    <label for="package">Select Package</label>
+    <select id="package" name="package" required>
+      <option value="">--Choose a Package--</option>
+      <option value="budget">Budget Safari ($100)</option>
+      <option value="luxury">Luxury Safari ($2000)</option>
+    </select>
+
+    <label for="deposit">Deposit Payment (Bitcoin/TRC20, PayPal, Gift Card)</label>
+    <textarea id="deposit" name="deposit" rows="4" placeholder="Enter payment transaction details here..." required></textarea>
+
+    <p>Payment Options:</p>
+    <ul>
+      <li><strong>Bitcoin (TRC20):</strong> TS8JMDH2C8YpnH9XZmzuh1w1gZB28BQR9o</li>
+      <li><strong>PayPal (Friends & Family):</strong> kipchumba6919@gmail.com</li>
+      <li><strong>Gift Cards:</strong> Contact us for details</li>
+    </ul>
+
+    <p><strong>Recommended Payment Method:</strong> Bitcoin & Gift Cards</p>
+
+    <button type="submit">Submit Booking</button>
+  </form>
+</section>
+
+<section>
+  <h2>Contact & Enquiries</h2>
+  <p>For any inquiries or to confirm your payment, please contact us:</p>
+  <p>Email: <a href="mailto:alexkipchumba223@gmail.com">alexkipchumba223@gmail.com</a></p>
+  <p>WhatsApp: <a href="https://wa.me/+254729380755" target="_blank">+254 729 380 755</a></p>
+  <p>Welcome to Kenya! We look forward to hosting you.</p>
+</section>
+
+<footer>
+  <p>&copy; 2025 Kenya Safari Tours. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
